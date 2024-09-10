@@ -1,7 +1,12 @@
+using _01_razor_pages_intro.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<MoviesDataContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("01_razor-pages-introContext") ?? throw new InvalidOperationException("Connection string '01_razor-pages-introContext' not found.")));
 
 var app = builder.Build();
 
