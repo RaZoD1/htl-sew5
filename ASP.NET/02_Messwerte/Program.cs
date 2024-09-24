@@ -1,7 +1,14 @@
+using _02_Messwerte.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<MessDataContext>(options =>
+        options.UseSqlite(builder.Configuration.GetConnectionString("messDataContext") 
+                          ?? throw new InvalidOperationException("Connection string 'messDataContext' not found.")));
+    
 
 var app = builder.Build();
 
