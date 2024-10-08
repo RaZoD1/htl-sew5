@@ -1,0 +1,61 @@
+@page
+@using _02_Messwerte.Model
+@model _02_Messwerte.Pages.MessStationen.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MessStation</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MessStation.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MessStation.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MessStation.BetriebsDauer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MessStation.BetriebsDauer)
+        </dd> 
+    </dl>
+    <table>
+        <tr>
+            <th style="min-width: 2em">@Html.DisplayNameFor(model => model.MessStation.MessWerte[0].Id)</th>
+            <th style="min-width: 4em">@Html.DisplayNameFor(model => model.MessStation.MessWerte[0].Value)</th>
+            <th style="min-width: 4em">@Html.DisplayNameFor(model => model.MessStation.MessWerte[0].Unit)</th>
+        </tr>
+        @{
+            foreach (var messWert in Model.MessStation.MessWerte)
+            {
+                <tr>
+                    <td>@messWert.Id.ToString()</td>
+                    <td>@messWert.Value.ToString()</td>
+                    <td>@messWert.Unit</td>
+                </tr>
+            }
+
+            if (Model.MessStation.MessWerte.Count == 0)
+            {
+                <tr><td colspan="3">Keine Werte</td> </tr>   
+            }
+            
+        }
+    </table>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.MessStation.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+<style>
+    tr,td,th {
+        border: 1px solid black;
+    }
+</style>
