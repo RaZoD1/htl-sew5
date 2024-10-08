@@ -6,5 +6,5 @@ public class MessStation
     public string Name { get; set; }
     public string BetriebsDauer { get; set; }
     
-    public List<MessWert> MessWerte { get; set; }
+    public List<MessWert> MessWerte { get; set; } =  new List<MessWert>();
 }

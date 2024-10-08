@@ -8,4 +8,6 @@ public class MessDataContext: DbContext
     public MessDataContext(DbContextOptions<MessDataContext> options): base(options){}
     
     public DbSet<MessStation> MessStationen { get; set; }
+
+public DbSet<_02_Messwerte.Model.MessWert> MessWert { get; set; } = default!;
 }

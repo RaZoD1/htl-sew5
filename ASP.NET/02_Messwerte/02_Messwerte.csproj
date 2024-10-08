@@ -23,6 +23,31 @@
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="8.0.8" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\MessStation\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStation\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStation\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStation\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStation\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStationen\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStationen\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStationen\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStationen\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\MessStationen\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\MessStationen\" />
+      <Folder Include="Pages\MessWerte\" />
     </ItemGroup>
 
 </Project>
