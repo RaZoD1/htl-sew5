@@ -8,7 +8,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MessDataContext>(options =>
         options.UseSqlite(builder.Configuration.GetConnectionString("messDataContext") 
                           ?? throw new InvalidOperationException("Connection string 'messDataContext' not found.")));
-    
+
+
 
 var app = builder.Build();
 
@@ -28,5 +29,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
+app.MapFallbackToFile("index.html");
 
 app.Run();
