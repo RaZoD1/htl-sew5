@@ -4,12 +4,13 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+//builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MessDataContext>(options =>
         options.UseSqlite(builder.Configuration.GetConnectionString("messDataContext") 
                           ?? throw new InvalidOperationException("Connection string 'messDataContext' not found.")));
-
-
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -21,15 +22,18 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+//app.UseHttpsRedirection();
+//app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
-app.MapRazorPages();
+//app.MapRazorPages();
 app.MapControllers();
-app.MapFallbackToFile("index.html");
+//app.MapFallbackToFile("index.html");
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Run();
