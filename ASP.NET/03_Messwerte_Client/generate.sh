@@ -1,0 +1,1 @@
+openapi-generator generate -g csharp -i http://localhost:5237/swagger/v1/swagger.json --additional-properties=netCoreProjectFile=true,optionalAssemblyInfo=false

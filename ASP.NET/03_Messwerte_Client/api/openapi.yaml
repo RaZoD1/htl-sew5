@@ -1,0 +1,328 @@
+openapi: 3.0.1
+info:
+  title: 02_Messwerte
+  version: "1.0"
+servers:
+- url: /
+paths:
+  /api/messtationen:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GetMessStationDto'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GetMessStationDto'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GetMessStationDto'
+                type: array
+          description: OK
+      tags:
+      - MessStation
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostMessStationDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PostMessStationDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PostMessStationDto'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+          description: OK
+      tags:
+      - MessStation
+  /api/messtationen/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - MessStation
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+          description: OK
+      tags:
+      - MessStation
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostMessStationDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PostMessStationDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PostMessStationDto'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - MessStation
+  /api/messtationen/{stationId}/messwerte:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: stationId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+          description: OK
+      tags:
+      - MessStation
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: stationId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostMessWertDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PostMessWertDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PostMessWertDto'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+          description: OK
+      tags:
+      - MessStation
+  /api/messtationen/{stationId}/messwerte/{messWertId}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: stationId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: messWertId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+          description: OK
+      tags:
+      - MessStation
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: stationId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: messWertId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetMessStationDto'
+          description: OK
+      tags:
+      - MessStation
+components:
+  schemas:
+    GetMessStationDto:
+      additionalProperties: false
+      example:
+        name: name
+        id: 0
+        messwerte:
+        - unit: unit
+          id: 6
+          value: 1
+        - unit: unit
+          id: 6
+          value: 1
+        betriebsDauer: betriebsDauer
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          nullable: true
+          type: string
+        betriebsDauer:
+          nullable: true
+          type: string
+        messwerte:
+          items:
+            $ref: '#/components/schemas/GetMessStationMesswertDto'
+          nullable: true
+          type: array
+      type: object
+    GetMessStationMesswertDto:
+      additionalProperties: false
+      example:
+        unit: unit
+        id: 6
+        value: 1
+      properties:
+        id:
+          format: int32
+          type: integer
+        value:
+          format: int32
+          type: integer
+        unit:
+          nullable: true
+          type: string
+      type: object
+    PostMessStationDto:
+      additionalProperties: false
+      example:
+        name: name
+        betriebsdauer: betriebsdauer
+      properties:
+        name:
+          nullable: true
+          type: string
+        betriebsdauer:
+          nullable: true
+          type: string
+      type: object
+    PostMessWertDto:
+      additionalProperties: false
+      example:
+        unit: unit
+        value: 0
+      properties:
+        value:
+          format: int32
+          type: integer
+        unit:
+          nullable: true
+          type: string
+      type: object
+
